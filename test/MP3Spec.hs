@@ -12,6 +12,12 @@ import MP3b
 
 spec :: Spec
 spec = do
-  describe "Your tests here!" $ do
-    it "works as it should" $ do
-      pending
+  describe "Binary tree" $ do
+    describe "treeRepeat" $ do 
+      it "returns the correct root node" $ do
+        let (Node x _ _) = treeRepeat 10 in x `shouldBe` 10
+        
+  describe "Poker stats" $ do
+    describe "deck" $ do      
+      it "is the correct length" $ do
+        length deck `shouldBe` 52
