@@ -1,10 +1,5 @@
 module MP3b where
 
-import Data.List
-import Data.List.Split
-import Test.QuickCheck
-
-
 {-
   Playing card definitions (feel free to add your own supporting types, so long 
   as you keep `Card`).
@@ -55,23 +50,3 @@ hand = undefined
 -}
 computeStats :: [[Card]] -> [(Int, Hand)]
 computeStats = undefined
-
-
--------------------------------------------------------------------------------
-
-{- 
-  Random deck/hand generators -- you shouldn't change any of the following
-  functions!
--}
-
-genDeck :: Gen [Card]
-genDeck = shuffle deck
-
-genHand :: Gen [Card]
-genHand = (take 5) <$> genDeck
-
-genHands :: Int -> Gen [[Card]]
-genHands n = (take n . chunksOf 5) <$> genDeck
-
-test :: Int -> IO [(Int, Hand)]
-test n = generate $  computeStats <$> (vectorOf n genHand)
